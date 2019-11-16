@@ -1,0 +1,36 @@
+#persistent
+SendMode, Input
+SetKeyDelay, 2, 2
+WinGet, LOA, List, Legends,
+MouseGetPos, MouseX, MouseY
+
+
+PgDn::
+    Loop
+    {
+    ControlSend,,3, % "ahk_id" . A_Space . LOA1,
+    Sleep, 1000
+    MouseGetPos, CurrentX, CurrentY
+    MouseMove, MouseX, MouseY
+    ControlClick,, % "ahk_id" . A_Space . LOA1,, LEFT,1, X%MouseX% Y%MouseY%
+    Sleep, 1000
+    MouseMove, MouseX2, MouseY2
+    ControlClick,, % "ahk_id" . A_Space . LOA1,, LEFT,1, X%MouseX2% Y%MouseY%
+    Sleep, 10500
+    }
+
+
+f3::
+MouseGetPos, MouseX, MouseY
+return
+
+f4::
+MouseGetPos, MouseX2, MouseY2
+return
+
+Pause::
+Pause
+return
+
+PgUp::
+Reload
